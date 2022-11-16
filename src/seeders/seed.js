@@ -71,11 +71,19 @@ const messages = [
 ];
 
 db.sync({ force: true }).then(() => {
-  console.log("Sunronizado");
+  console.log("Sinronizado");
   users.forEach(async (user) => await Users.create(user));
   setTimeout(() => {
     conversations.forEach(
       async (conversation) => await Conversations.create(conversation)
     );
   }, 100);
+  setTimeout(() => {
+    participants.forEach(
+      async (participant) => await Participants.create(participant)
+    );
+  }, 200);
+  setTimeout(() => {
+    messages.forEach(async (message) => await Messages.create(message));
+  }, 300);
 });
