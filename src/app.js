@@ -4,6 +4,7 @@ const cors = require("cors");
 const db = require("./utils/database");
 const handleError = require("./middlewares/error.middleware");
 const initModels = require("./models/initModels");
+const { userRoutes } = require("./routes");
 
 const app = express();
 
@@ -17,13 +18,15 @@ db.authenticate()
   .then(() => console.log("Autenticación exitosa"))
   .catch((error) => console.log(error));
 
-db.sync({ force: true })
+db.sync({ force: false })
   .then(() => console.log("Base de datos sincronizada"))
   .catch((error) => console.log(error));
 
 app.get("/", (req, res) => {
   console.log("Bienvenido al server");
 });
+
+app.use("/api/v1", userRoutes);
 
 app.use(handleError);
 
