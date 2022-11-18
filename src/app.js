@@ -4,7 +4,7 @@ const cors = require("cors");
 const db = require("./utils/database");
 const handleError = require("./middlewares/error.middleware");
 const initModels = require("./models/initModels");
-const { userRoutes } = require("./routes");
+const { userRoutes, authRoutes } = require("./routes");
 
 const app = express();
 
@@ -27,6 +27,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1", userRoutes);
+app.use("/api/v1", authRoutes);
 
 app.use(handleError);
 
