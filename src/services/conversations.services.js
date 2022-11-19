@@ -1,10 +1,16 @@
-const { Participants } = require("../models");
+const { Users, Conversations } = require("../models");
+// users --> conversations
 
 class ConversationsServices {
   static async getByUser(id) {
     try {
-      const conversations = await Participants.findAll({
-        where: { userId: id },
+      const conversations = await Users.findAll({
+        where: { id },
+        attributes: ["id"],
+        include: {
+          model: Conversations,
+          attributes: ["id", "title", "imageUrl"],
+        },
       });
       return conversations;
     } catch (error) {
