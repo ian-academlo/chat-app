@@ -2,6 +2,27 @@ const db = require("../utils/database");
 const { DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     Users:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *           example: 1
+ *         firstname:
+ *           type: string
+ *           example: Ian
+ *         lastname:
+ *           type: string
+ *           example: Rosas
+ *         email:
+ *           type: string
+ *           example: ian@gmail.com
+ */
+
 const Users = db.define(
   "users",
   {
