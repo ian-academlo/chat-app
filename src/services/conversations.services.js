@@ -1,4 +1,4 @@
-const { Users, Conversations } = require("../models");
+const { Users, Conversations, Messages } = require("../models");
 // users --> conversations
 
 class ConversationsServices {
@@ -13,6 +13,25 @@ class ConversationsServices {
         },
       });
       return conversations;
+    } catch (error) {
+      throw error;
+    }
+  }
+  static async getWithMessages(id) {
+    try {
+      const conversationData = await Conversations.findOne({
+        where: { id },
+        include: [
+          {
+            model: Messages,
+            as: "messages",
+          },
+          {
+            model: Users,
+          },
+        ],
+      });
+      return conversationData;
     } catch (error) {
       throw error;
     }
