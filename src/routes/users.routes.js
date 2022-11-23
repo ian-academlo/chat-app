@@ -25,6 +25,7 @@ const router = Router();
  *                   type: array
  *                   items:
  *                     $ref: "#/components/schemas/Users"
+ *
  */
 
 router.post("/users", userRegister);
