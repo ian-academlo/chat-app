@@ -7,8 +7,43 @@ const {
   createConversation,
 } = require("../controllers");
 
-const router = Router();
+/**
+ * @openapi
+ * /api/v1/conversations/{id}:
+ *   get:
+ *     security:
+ *       - bearerAuth: []
+ *     summary: Get all conversations from user
+ *     tags: [conversations]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           minimum: 1
+ *         description: user Id
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: OK
+ *                 data:
+ *                   type: array
+ *                   items: {}
+ */
 
+const router = Router();
+// obtiene todas las conversaciones de un usuario
+// primera es agreagar un campo para el parametro de la petición
+// user id
+// es poder enviar el token en la petición
 router.get("/conversations/:id", authenticate, getUserConversations);
 router.get(
   "/conversations/:conversationId/messages",

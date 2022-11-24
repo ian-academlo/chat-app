@@ -11,7 +11,11 @@ const options = {
       description: "API que sirve para crear una aplicación de mensajera.",
     },
   },
-  apis: ["./src/routes/users.routes.js", "./src/models/users.models.js"],
+  apis: [
+    "./src/routes/users.routes.js",
+    "./src/routes/conversation.routes.js",
+    "./src/models/users.models.js",
+  ],
 };
 
 const swaggerSpec = swaggerJSDoc(options);
