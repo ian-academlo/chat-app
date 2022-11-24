@@ -4,7 +4,7 @@ const swaggerUi = require("swagger-ui-express");
 
 const options = {
   definition: {
-    openapi: "3.0.0",
+    openapi: "3.0.0", // standar open Api que estamos usando
     info: {
       title: "Clon de un chat en node js",
       version: "1.0.0",
@@ -32,4 +32,5 @@ const swaggerDocs = (app, port) => {
   );
 };
 
-module.exports = swaggerDocs;
+module.exports = swaggerDocs; // donde iniciamos nuestro servidor
+// app.listen

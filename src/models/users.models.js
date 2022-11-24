@@ -6,12 +6,9 @@ const bcrypt = require("bcrypt");
  * @openapi
  * components:
  *   schemas:
- *     Users:
+ *     users:
  *       type: object
  *       properties:
- *         id:
- *           type: integer
- *           example: 1
  *         firstname:
  *           type: string
  *           example: Ian
@@ -21,6 +18,24 @@ const bcrypt = require("bcrypt");
  *         email:
  *           type: string
  *           example: ian@gmail.com
+ *     register:
+ *       type: object
+ *       properties:
+ *         firstname:
+ *           type: string
+ *           example: Ian
+ *         lastname:
+ *           type: string
+ *           example: Rosas
+ *         email:
+ *           type: string
+ *           example: ian@gmail.com
+ *         phone:
+ *           type: string
+ *           example: 0000000000
+ *         password:
+ *           type: string
+ *           example: 1234
  */
 
 const Users = db.define(
