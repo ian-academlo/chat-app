@@ -5,6 +5,7 @@ const {
   getConversationMessages,
   createMessageInConversation,
   createConversation,
+  getMessages,
 } = require("../controllers");
 
 /**
@@ -45,6 +46,7 @@ const router = Router();
 // user id
 // es poder enviar el token en la petición
 router.get("/conversations/:id", authenticate, getUserConversations);
+router.get("/conversations/messages/:conversationId", getMessages);
 router.get(
   "/conversations/:conversationId/messages",
   authenticate,
@@ -64,3 +66,10 @@ router.post("/conversations", authenticate, createConversation);
 // participantes
 
 module.exports = router;
+
+// ?
+// es un par clave-valor (key/value)
+// ?username=jose&phone=1111111111&country=usa
+// https://pokeapi.co/api/v2/pokemon?offset=60&limit=20
+
+// como changaos obtenemos los query params en node??

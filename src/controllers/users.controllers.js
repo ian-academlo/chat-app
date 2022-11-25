@@ -16,7 +16,9 @@ const userRegister = async (req, res, next) => {
 
 const getAllUser = async (req, res, next) => {
   try {
-    const users = await UserServices.getAll();
+    const offset = req.query.offset ?? 0;
+    const limit = req.query.limit ?? 3;
+    const users = await UserServices.getAll(offset, limit);
     res.json(users);
   } catch (error) {
     next({

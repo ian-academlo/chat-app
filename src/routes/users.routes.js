@@ -36,6 +36,6 @@ const router = Router();
  */
 
 router.post("/users", userRegister);
-router.get("/users", authenticate, getAllUser);
+router.get("/users", getAllUser);
 
 module.exports = router;

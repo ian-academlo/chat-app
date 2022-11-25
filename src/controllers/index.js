@@ -5,6 +5,7 @@ const {
   getConversationMessages,
   createMessageInConversation,
   createConversation,
+  getMessages,
 } = require("./conversations.controllers");
 
 module.exports = {
@@ -15,6 +16,7 @@ module.exports = {
   getConversationMessages,
   createMessageInConversation,
   createConversation,
+  getMessages,
 };
 
 // registrar a un usuario
