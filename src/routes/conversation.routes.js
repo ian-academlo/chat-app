@@ -38,6 +38,20 @@ const {
  *                 data:
  *                   type: array
  *                   items: {}
+ * /api/v1/conversations/messages/{conversationId}:
+ *   get:
+ *     security:
+ *       - bearerAuth: []
+ *     summary: Obtener todos los mensajes de una conversación
+ *     tags: [conversations]
+ *     parameters:
+ *       - in: path
+ *         name: conversationId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           minimum: 1
+ *         description: El id de la conversación donde obtendremos los mensajes
  */
 
 const router = Router();
