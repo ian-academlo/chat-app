@@ -23,11 +23,11 @@ db.sync({ force: false })
   .then(() => console.log("Base de datos sincronizada"))
   .catch((error) => console.log(error));
 
-transporter
-  .verify() // devuelve una promesa
-  .then(() =>
-    console.log("Estamos listos para enviar correos a diestra y siniestra")
-  );
+// transporter
+//   .verify() // devuelve una promesa
+//   .then(() =>
+//     console.log("Estamos listos para enviar correos a diestra y siniestra")
+//   );
 
 app.get("/", (req, res) => {
   console.log("Bienvenido al server");
