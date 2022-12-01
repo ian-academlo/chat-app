@@ -7,7 +7,7 @@
     "dev": "nodemon ./src/server.js",
     "start": "node ./src/server.js",
     "seed": "node ./src/seeders/seed.js",
-    "test": "jest --silent --detectOpenHandles --verbose"
+    "test": "jest  --detectOpenHandles --verbose"
   },
   "keywords": [],
   "author": "",

@@ -18,6 +18,8 @@ const authenticate = (req, res, next) => {
         message: "Invalid Token",
       });
     }
+  } else {
+    res.status(400).json({ message: "No token provided" });
   }
 };
 
