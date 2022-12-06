@@ -66,11 +66,7 @@ class ConversationsServices {
     try {
       const { createdBy, title, participants } = data;
       const conversation = await Conversations.create({ title, createdBy });
-      // {id, title, createdBy, imageURL, createdAt}
       const conversationId = conversation.id;
-      // participants = [1, 2]
-      // participants = [{conversationId, userId}, {conversationId, userId}]
-      // necesito agreagar a los participantes a esa conversación
       const conversationParticipants = participants.map((userId) => {
         return {
           conversationId,
@@ -78,7 +74,6 @@ class ConversationsServices {
         };
       });
       console.log(conversationParticipants);
-      // conversationParticipants = [{conversationId, userId}, {conversationId, userId}]
       conversationParticipants.forEach(
         async (participant) => await Participants.create(participant)
       );

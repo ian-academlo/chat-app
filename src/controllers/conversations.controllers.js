@@ -71,8 +71,8 @@ const getMessages = async (req, res, next) => {
 
 const createMessageInConversation = async (req, res, next) => {
   try {
-    const data = req.body; // senderId, message
-    const { conversationId } = req.params; // {senderId, message, conversationId}
+    const data = req.body; 
+    const { conversationId } = req.params; 
     const result = await ConversationsServices.createMessage({
       ...data,
       conversationId,
@@ -89,8 +89,6 @@ const createMessageInConversation = async (req, res, next) => {
 
 const createConversation = async (req, res, next) => {
   try {
-    // creator, title, participants
-    //{ createdBy: 1, title: 'lasdñkjfalk', participants: [1, 3] }
     const data = req.body;
     const result = await ConversationsServices.create(data);
     res.json(result);

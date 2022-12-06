@@ -2,12 +2,8 @@ const { AuthServices } = require("../services");
 
 const userLogin = async (req, res, next) => {
   try {
-    // email y password
     const credentials = req.body;
     const result = await AuthServices.authenticate(credentials);
-    // false --> no era contraseña invalida
-    // null --> no se encuentra al usuario
-    // { isValid, result }
     if (result) {
       const { firstname, lastname, email, id, phone } = result.result;
       const user = { firstname, lastname, email, id, phone };
